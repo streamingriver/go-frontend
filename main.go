@@ -12,7 +12,7 @@ import (
 )
 
 var (
-	flagBindTo = flag.String("bind-to", ":8000", "bind to ip:port")
+	flagBindTo = flag.String("bind-to", ":8085", "bind to ip:port")
 )
 
 func main() {
@@ -50,7 +50,7 @@ func main() {
 		w.Write(response.body)
 	})
 
-	http.ListenAndServe(*flagBindTo, router)
+	log.Fatal(http.ListenAndServe(*flagBindTo, router))
 }
 
 type Response struct {
