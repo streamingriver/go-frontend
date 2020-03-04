@@ -50,7 +50,7 @@ func main() {
 		w.Write(response.body)
 	})
 
-	http.ListenAndServe(":8000", router)
+	http.ListenAndServe(*flagBindTo, router)
 }
 
 type Response struct {
