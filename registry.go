@@ -44,6 +44,7 @@ func ping(ch, port string) {
 			Seen: time.Now().Unix() + 3,
 		}
 	}
+	registry[ch].Port = port
 	registry[ch].Seen = time.Now().Unix() + 3
 
 }

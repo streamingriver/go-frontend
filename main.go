@@ -40,6 +40,7 @@ func main() {
 
 		response := fetch(*url)
 		if response.err != nil {
+			log.Printf("fetch url error: %v", response.err)
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
