@@ -29,6 +29,9 @@ func main() {
 		vars := mux.Vars(r)
 
 		url := getURL(vars["name"], vars["file"])
+		if r.URL.RawQuery != "" {
+			*url = *url + "?" + r.URL.RawQuery
+		}
 
 		if url == nil {
 			http.NotFound(w, r)
